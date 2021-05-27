@@ -157,6 +157,9 @@ class Diffable(object):
             args.extend(paths)
         # END paths handling
 
+        if 'end_params' in kwargs:
+            args.extend(kwargs.pop('end_params'))
+
         kwargs['as_process'] = True
         proc = diff_cmd(*self._process_diff_args(args), **kwargs)
 
